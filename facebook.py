@@ -4,8 +4,7 @@ class User():
 		self.email = email
 		self.password = password
 		self.friends_list = []
-		self.posts = []
-
+		
 	def add_friends(self, email):
 		self.friends_list.append(email)
 		print(self.name + " has added " + email + " as a frienf.")
@@ -15,9 +14,10 @@ class User():
 		self.friends_list.remove(email)
 		print(self.name + " has removed " + email + " from his friends list.")
 
-	def post(self,text):
-		self.posts.append(text)
-		print(self.name + " has prsted " + text)
+	def get_post(self):
+		post3 = Post(text, self.email)
+		post.append(post3)
+		print(self.name + " has prsted: " + text)
 
 	def get_userinfo(self):
 		print("Name: " + self.name)
@@ -27,8 +27,29 @@ class User():
 		print("Posts: " + str(self.posts))
 
 
-class Prst(User):
-	
+class Post(User):
+	def __init__(self, text):
+
+		self.comments = []
+		self.likes = 0
+		self.dislikes = 0
+
+	def add_comment(self, email, text):
+		self.comments.append(text)
+		print(email + " has commented: " + text)
+
+	def add_likes(self, email):
+		self.likes += 1
+		print(email + " liked your post")
+
+	def add_dislikes(self, email):
+		self.dislikes += 1
+		print(email + " disliked your post")
+
+
+user = []
+post = []
+
 
 
 
@@ -37,7 +58,9 @@ user1 = User("Yaara", "yaarameridor@gmail.com", "password123")
 user2 = User("Uri", "urihello@gmail.com", "somepassword123")
 
 user1.add_friends("urihello@gmail.com")
-user2.post("hello, my name is Uru and i am a  hucker")
-user1.get_userinfo()
 
-user1.remove_friends("urihello@gmail.com")
+post3.get_post("hello, im writing a post")
+
+
+
+
