@@ -1,9 +1,15 @@
+
+user = []
+post = []
+
 class User():
 	def __init__(self, name, email, password):
 		self.name = name
 		self.email = email
 		self.password = password
 		self.friends_list = []
+
+		user.append(self)
 		
 	def add_friends(self, email):
 		self.friends_list.append(email)
@@ -14,10 +20,11 @@ class User():
 		self.friends_list.remove(email)
 		print(self.name + " has removed " + email + " from his friends list.")
 
-	def get_post(self):
-		post3 = Post(text, self.email)
+	def add_post(self, text):
+		post3 = Post(self.email)
 		post.append(post3)
 		print(self.name + " has prsted: " + text)
+
 
 	def get_userinfo(self):
 		print("Name: " + self.name)
@@ -47,9 +54,6 @@ class Post(User):
 		print(email + " disliked your post")
 
 
-user = []
-post = []
-
 
 
 
@@ -59,8 +63,8 @@ user2 = User("Uri", "urihello@gmail.com", "somepassword123")
 
 user1.add_friends("urihello@gmail.com")
 
-post3.get_post("hello, im writing a post")
-
-
+user1.add_post("hello, my name id yaara")
+print(post)
+print(user)
 
 
